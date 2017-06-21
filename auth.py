@@ -48,6 +48,7 @@ if __name__ == '__main__':
     for item in result['data']:
         if item['type'] == 'TXT' and item['host'] == host_name:
             record_id = item['record_id']
+            break
 
     if record_id:
         """
@@ -67,9 +68,8 @@ if __name__ == '__main__':
                 spare_data String 备IP
             :return: String
         """
-        result = api.record_update(
-            record_id, domain_id, host_name, CERTBOT_VALIDATION, 'TXT', 10, 60, 1)
-        print result
+        result = api.record_update(record_id, domain_id, host_name, CERTBOT_VALIDATION, 'TXT', 10, 60, 1)
+        print 'update', result
     else:
         """
         功能 添加解析记录
@@ -87,5 +87,5 @@ if __name__ == '__main__':
             :return: String
         """
         result = api.record_add(domain_id, host_name, CERTBOT_VALIDATION, 'TXT', 10, 60, 1)
-        print result
-        time.sleep(30)
+        print 'add', result
+
