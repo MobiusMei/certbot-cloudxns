@@ -47,7 +47,7 @@ if __name__ == '__main__':
     record_id = None
     for item in result['data']:
         if item['type'] == 'TXT' and item['host'] == host_name:
-            record_id = item['id']
+            record_id = item['record_id']
 
     if record_id:
         """
