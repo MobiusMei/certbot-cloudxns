@@ -96,7 +96,6 @@ if __name__ == '__main__':
         """
         result = api.record_update(record_id, domain_id, host_name, CERTBOT_VALIDATION, 'TXT', 10, 60, 1)
         print 'update', result
-        sleep(30)
     else:
         """
         功能 添加解析记录
@@ -115,5 +114,5 @@ if __name__ == '__main__':
         """
         result = api.record_add(domain_id, host_name, CERTBOT_VALIDATION, 'TXT', 10, 60, 1)
         print 'add', result
-        sleep(30)
+    time.sleep(30)
 
