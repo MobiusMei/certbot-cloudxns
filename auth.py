@@ -72,7 +72,7 @@ if __name__ == '__main__':
     for item in result['data']:
         if item['type'] == 'TXT' and item['host'] == host_name:
             record_id = item['record_id']
-            if item['value'] == CERTBOT_VALIDATION
+            if item['value'] == CERTBOT_VALIDATION:
                 print 'already exists, skip'
                 sys.exit(0)
 
