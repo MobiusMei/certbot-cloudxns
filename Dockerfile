@@ -1,10 +1,4 @@
-FROM quay.io/letsencrypt/letsencrypt
+FROM certbot/certbot
 
-RUN apt-get update
-RUN apt-get install -y python-pip
-RUN pip install --upgrade pip
+RUN pip install certbot-dns-cloudxns
 
-RUN pip install --no-cache-dir restclient https://github.com/CloudXNS/CloudXNS-API-SDK-Python/archive/master.zip
-
-ADD auth.py /usr/bin/auth.py
-ADD cleanup.py /usr/bin/cleanup.py
