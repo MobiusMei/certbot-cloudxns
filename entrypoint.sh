@@ -5,12 +5,10 @@ do
   certbot $@
 
   # convert symlink to regular file
-  cd /etc/letsencrypt
-  for file in $(find -type l)
-  do
-    cp -f $(readlink -f $file) $file
+  cp -LpR /etc/letsencrypt/live/* live-regular
+  for domain in live-regular/*; do
+    cat "$domain/privkey.pem" "$domain/fullchain.pem" > "$domain/bundle.pem"
   done
-  cd $OLDPWD
 
   sleep 30d
 done
